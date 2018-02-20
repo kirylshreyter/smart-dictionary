@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.kirylshreyter.smart-dictionary</groupId>
+	<artifactId>parent-project</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>datamodel</module>
+        <module>dao-db</module>
+        <module>services</module>
+		<module>webapp</module>
+	</modules>
+
+	<properties>
+        <maven.compiler.source>1.9</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<common.project.version>1.0.0</common.project.version>
+		<java.version>1.9</java.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- PROJECT MODULES -->
+
+			<dependency>
+				<groupId>com.kirylshreyter.smart-dictionary</groupId>
+				<artifactId>datamodel</artifactId>
+				<version>${common.project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.kirylshreyter.smart-dictionary</groupId>
+				<artifactId>dao-db</artifactId>
+				<version>${common.project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.kirylshreyter.smart-dictionary</groupId>
+				<artifactId>services</artifactId>
+				<version>${common.project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.kirylshreyter.smart-dictionary</groupId>
+				<artifactId>webapp</artifactId>
+				<version>${common.project.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+</project>
