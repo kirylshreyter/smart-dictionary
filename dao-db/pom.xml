@@ -8,6 +8,36 @@
 		<version>1.0.0</version>
 	</parent>
 
+	<properties>
+		<flyway.driver>org.postgresql.Driver</flyway.driver>
+		<flyway.url>jdbc:postgresql://127.0.0.1:5432/smart_dictionary</flyway.url>
+		<flyway.user>shreyter</flyway.user>
+		<flyway.password>123456789</flyway.password>
+	</properties>
+
 	<artifactId>dao-db</artifactId>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>5.0.7</version>
+			</plugin>
+
+		</plugins>
+
+	</build>
 
 </project>
