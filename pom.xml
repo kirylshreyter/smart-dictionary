@@ -9,18 +9,18 @@
 
 	<modules>
 		<module>datamodel</module>
-        <module>dao-db</module>
-        <module>services</module>
+		<module>dao-db</module>
+		<module>services</module>
 		<module>webapp</module>
 	</modules>
 
 	<properties>
-        <maven.compiler.source>1.9</maven.compiler.source>
-        <maven.compiler.target>1.9</maven.compiler.target>
+		<maven.compiler.source>1.9</maven.compiler.source>
+		<maven.compiler.target>1.9</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<common.project.version>1.0.0</common.project.version>
 		<java.version>1.9</java.version>
-        <spring.version>5.0.2.RELEASE</spring.version>
+		<spring.version>5.0.2.RELEASE</spring.version>
 		<spring.data.jpa.version>2.0.2.RELEASE</spring.data.jpa.version>
 		<hibernate.version>5.2.12.Final</hibernate.version>
 		<jackson.version>2.9.3</jackson.version>
@@ -186,21 +186,21 @@
 				<version>${jackson.version}</version>
 			</dependency>
 
-            <!-- OTHER LIBRARIES -->
+			<!-- OTHER LIBRARIES -->
 
-            	<dependency>
+			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-dbcp2</artifactId>
 				<version>2.1.1</version>
 			</dependency>
 
-          		<dependency>
+			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpcore</artifactId>
 				<version>4.4.9</version>
 			</dependency>
 
-            <!-- JETTY SERVER -->
+			<!-- JETTY SERVER -->
 
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
@@ -208,21 +208,21 @@
 				<version>${jetty9.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-webapp</artifactId>
 				<version>${jetty9.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-util</artifactId>
 				<version>${jetty9.version}</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-jmx</artifactId>
@@ -236,10 +236,16 @@
 				<version>2.3.0</version>
 			</dependency>
 
-            	<dependency>
+			<dependency>
 				<groupId>org.json</groupId>
 				<artifactId>json</artifactId>
 				<version>20180130</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.11</version>
 			</dependency>
 
 		</dependencies>
