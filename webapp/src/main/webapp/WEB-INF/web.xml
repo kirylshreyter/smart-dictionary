@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<display-name>Smart Dictionary Application</display-name>
+	<description>
+		This is a simple web application with a source code organization
+		based on the recommendations of the Application Developer's Guide.
+	</description>
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+	
+	<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            com.kirylshreyter.smart_dictionary.webapp.config
+        </param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    
+    <servlet>
+	    <servlet-name>mainServlet</servlet-name>
+	    <servlet-class>
+	        org.springframework.web.servlet.DispatcherServlet
+	    </servlet-class>
+	    <init-param>
+	        <param-name>contextClass</param-name>
+	        <param-value>
+	            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+	        </param-value>
+	    </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>mainServlet</servlet-name>
+	  <url-pattern>/</url-pattern>
+    </servlet-mapping>
+	
+    <filter>
+        <filter-name>apiAuthenticationFilter</filter-name>
+	  <filter-class>com.kirylshreyter.smart_dictionary.webapp.filters.ApiAuthenticationFilter</filter-class>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>apiAuthenticationFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>signInFilter</filter-name>
+	  <filter-class>com.kirylshreyter.smart_dictionary.webapp.filters.SignInFilter</filter-class>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>signInFilter</filter-name>
+        <url-pattern>/signin</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>signOutFilter</filter-name>
+	  <filter-class>com.kirylshreyter.smart_dictionary.webapp.filters.SignOutFilter</filter-class>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>signOutFilter</filter-name>
+        <url-pattern>/signout</url-pattern>
+    </filter-mapping>
+    
+</web-app>   
