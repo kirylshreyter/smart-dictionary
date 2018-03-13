@@ -24,9 +24,8 @@ import com.kirylshreyter.smart_dictionary.webapp.converters.StringToAuthHeaderCo
 		com.kirylshreyter.smart_dictionary.services.impl.TranslationServiceImpl.class })
 
 // Controllers
-@ComponentScan(basePackageClasses = { com.kirylshreyter.smart_dictionary.webapp.controllers.api.v1.UserController.class,
-		com.kirylshreyter.smart_dictionary.webapp.controllers.AuthenticationController.class,
-		com.kirylshreyter.smart_dictionary.webapp.controllers.api.v1.WordController.class })
+@ComponentScan(basePackageClasses = {
+		com.kirylshreyter.smart_dictionary.webapp.controllers.AuthenticationController.class })
 public class WebappConfig implements WebMvcConfigurer {
 
 	@Override
