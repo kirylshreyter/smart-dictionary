@@ -1,0 +1,15 @@
+{
+  "name": "smart-dictionary",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
