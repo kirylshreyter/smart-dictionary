@@ -1,7 +1,7 @@
 package com.kirylshreyter.smart_dictionary.daodb.entities;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,21 +33,12 @@ public class Translation extends AbstractEntity implements ITranslation {
 
 	@Override
 	public Set<IWord> getWords() {
-		Set<IWord> result = new HashSet<IWord>();
-		words.forEach((word) -> {
-			result.add(word);
-		});
-		return result;
+		return words.stream().map(e -> e).collect(Collectors.toSet());
 	}
 
 	@Override
 	public void setWords(Set<IWord> words) {
-		Set<Word> result = new HashSet<Word>();
-		words.forEach((word) -> {
-			result.add((Word) word);
-		});
-		;
-		this.words = result;
+		this.words = words.stream().map(e -> (Word) e).collect(Collectors.toSet());
 	}
 
 }
