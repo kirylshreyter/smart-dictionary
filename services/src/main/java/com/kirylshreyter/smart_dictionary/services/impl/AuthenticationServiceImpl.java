@@ -26,11 +26,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		if (auth.getUser() == null) {
 			return auth;
 		}
-		String token = generateToken();
+		auth.getUser().setToken(generateToken());
+
 		auth.setAuthenticated(true);
-		auth.getUser().setToken(token);
-		auth.setToken(token);
-		auth.setUser(userService.create(auth.getUser()));
+		auth.setToken(auth.getUser().getToken());
+		userService.setFixedTokenFor(auth.getUser().getToken(), auth.getUser().getId());
 		return auth;
 	}
 
@@ -46,17 +46,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			return credentials;
 		}
 		String[] decodedString = new String(resolved).split(":");
-		IUser user;
-		try {
-			user = userService.findByEmailAndPassword(decodedString[0], decodedString[1]);
-		} catch (Exception e) {
-			user = null;
-		}
+		IUser user = userService.findByEmailAndPassword(decodedString[0], DigestUtils.sha256Hex(decodedString[1]));
 		if (user == null) {
 			return credentials;
 		}
-		credentials.setEmail(decodedString[0]);
-		credentials.setPassword(decodedString[1]);
+		credentials.setEmail(user.getEmail());
+		credentials.setPassword(user.getPassword());
 		return credentials;
 	}
 
@@ -99,6 +94,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			return token;
 		}
 		return generateToken();
+	}
+
+	@Override
+	public String generateToken(String passPhrase) {
+		return DigestUtils.sha256Hex(passPhrase);
 	}
 
 }

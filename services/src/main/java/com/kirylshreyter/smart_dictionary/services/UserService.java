@@ -8,4 +8,8 @@ public interface UserService extends AbstractService<IUser> {
 
 	public IUser findByEmailAndPassword(String email, String password);
 
+	public IUser findByEmail(String email);
+
+	public void setFixedTokenFor(String token, long id);
+
 }
