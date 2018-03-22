@@ -19,8 +19,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableJpaRepositories(repositoryFactoryBeanClass = InterfaceBasedJpaRepositoryFactoryBean.class, basePackageClasses = {
-		com.kirylshreyter.smart_dictionary.daodb.repositories.FirstNameRepository.class,
-		com.kirylshreyter.smart_dictionary.daodb.repositories.LastNameRepository.class,
 		com.kirylshreyter.smart_dictionary.daodb.repositories.TranslationRepository.class,
 		com.kirylshreyter.smart_dictionary.daodb.repositories.UserRepository.class,
 		com.kirylshreyter.smart_dictionary.daodb.repositories.WordRepository.class })
