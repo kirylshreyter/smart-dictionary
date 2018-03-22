@@ -44,22 +44,18 @@ public class UserServiceImpl implements UserService {
 	return userDaoDb.findByEmailAndPassword(email, password);
     }
 
-    @Override
     public IUser findByEmail(String email) {
 	return userDaoDb.findByEmail(email);
     }
 
-    @Override
     public void setFixedTokenFor(String token, long id) {
 	userDaoDb.setFixedTokenFor(token, id);
     }
 
-    @Override
     public List<IUser> saveAll(Iterable<IUser> entities) {
 	return userDaoDb.saveAll(entities);
     }
 
-    @Override
     public void deleteAll(Iterable<IUser> entities) {
 	userDaoDb.deleteAll(entities);
     }
