@@ -7,36 +7,61 @@ import org.springframework.stereotype.Service;
 
 import com.kirylshreyter.smart_dictionary.daodb.UserDaoDb;
 import com.kirylshreyter.smart_dictionary.datamodel.IUser;
+import com.kirylshreyter.smart_dictionary.services.AuthenticationService;
 import com.kirylshreyter.smart_dictionary.services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserDaoDb userDaoDb;
+    @Autowired
+    private UserDaoDb userDaoDb;
 
-	public IUser create(IUser t) {
-		return userDaoDb.create(t);
-	}
+    @Autowired
+    private AuthenticationService authenticationService;
 
-	public IUser read(long id) {
-		return userDaoDb.read(id);
-	}
+    public IUser create(IUser t) {
+	t.setPassword(authenticationService.generateToken(t.getPassword()));
+	return userDaoDb.create(t);
+    }
 
-	public List<IUser> readAll() {
-		return userDaoDb.readAll();
-	}
+    public IUser read(long id) {
+	return userDaoDb.read(id);
+    }
 
-	public void delete(IUser t) {
-		userDaoDb.delete(t);
-	}
+    public List<IUser> readAll() {
+	return userDaoDb.readAll();
+    }
 
-	public IUser findByToken(String token) {
-		return userDaoDb.findByToken(token);
-	}
+    public void delete(IUser t) {
+	userDaoDb.delete(t);
+    }
 
-	public IUser findByEmailAndPassword(String email, String password) {
-		return userDaoDb.findByEmailAndPassword(email, password);
-	}
+    public IUser findByToken(String token) {
+	return userDaoDb.findByToken(token);
+    }
+
+    public IUser findByEmailAndPassword(String email, String password) {
+	return userDaoDb.findByEmailAndPassword(email, password);
+    }
+
+    @Override
+    public IUser findByEmail(String email) {
+	return userDaoDb.findByEmail(email);
+    }
+
+    @Override
+    public void setFixedTokenFor(String token, long id) {
+	userDaoDb.setFixedTokenFor(token, id);
+    }
+
+    @Override
+    public List<IUser> saveAll(Iterable<IUser> entities) {
+	return userDaoDb.saveAll(entities);
+    }
+
+    @Override
+    public void deleteAll(Iterable<IUser> entities) {
+	userDaoDb.deleteAll(entities);
+    }
 
 }
