@@ -1,9 +1,15 @@
 package com.kirylshreyter.smart_dictionary.webapp.models;
 
-public interface TranslationModel extends AbstractModel {
+public class TranslationModel extends AbstractModel {
 
-	public String getValue();
+	private String value;
 
-	public void setValue(String value);
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
 
 }
