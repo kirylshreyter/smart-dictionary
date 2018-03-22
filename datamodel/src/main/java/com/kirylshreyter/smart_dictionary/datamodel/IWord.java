@@ -4,20 +4,28 @@ import java.util.Set;
 
 public interface IWord extends IAbstract {
 
-	public String getValue();
+    public String getValue();
 
-	public void setValue(String value);
+    public void setValue(String value);
 
-	public long getRepeatCount();
+    public long getRepeatCount();
 
-	public void setRepeatCount(long repeatCount);
+    public void setRepeatCount(long repeatCount);
 
-	public IUser getUser();
+    public IUser getUser();
 
-	public void setUser(IUser user);
+    public void setUser(IUser user);
 
-	public Set<ITranslation> getTranslations();
+    public Set<ITranslation> getTranslations();
 
-	public void setTranslations(Set<ITranslation> translations);
+    public void setTranslations(Set<ITranslation> translations);
+
+    public boolean addTranslation(ITranslation translation);
+
+    public boolean removeTranslation(ITranslation translation);
+
+    public Set<ITranslation> findTranslationsByValue(String value);
+
+    public void deleteAllTranslations();
 
 }
