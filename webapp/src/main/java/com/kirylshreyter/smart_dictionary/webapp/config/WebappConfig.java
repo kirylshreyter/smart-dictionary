@@ -14,23 +14,25 @@ import com.kirylshreyter.smart_dictionary.webapp.converters.StringToAuthHeaderCo
 // Conversion service configuration
 @ComponentScan(basePackageClasses = { com.kirylshreyter.smart_dictionary.webapp.config.ConversionServiceConfig.class })
 
-// Another configuration
+// Services configuration
 @ComponentScan(basePackageClasses = { com.kirylshreyter.smart_dictionary.services.config.ServiceConfig.class })
 
 // Services
 @ComponentScan(basePackageClasses = { com.kirylshreyter.smart_dictionary.services.impl.UserServiceImpl.class,
-		com.kirylshreyter.smart_dictionary.services.impl.AuthenticationServiceImpl.class,
-		com.kirylshreyter.smart_dictionary.services.impl.WordServiceImpl.class,
-		com.kirylshreyter.smart_dictionary.services.impl.TranslationServiceImpl.class })
+	com.kirylshreyter.smart_dictionary.services.impl.AuthenticationServiceImpl.class,
+	com.kirylshreyter.smart_dictionary.services.impl.WordServiceImpl.class,
+	com.kirylshreyter.smart_dictionary.services.impl.TranslationServiceImpl.class })
 
 // Controllers
 @ComponentScan(basePackageClasses = {
-		com.kirylshreyter.smart_dictionary.webapp.controllers.AuthenticationController.class })
+	com.kirylshreyter.smart_dictionary.webapp.controllers.AuthenticationController.class,
+	com.kirylshreyter.smart_dictionary.webapp.controllers.api.v1.WordController.class })
+
 public class WebappConfig implements WebMvcConfigurer {
 
-	@Override
-	public void addFormatters(FormatterRegistry registry) {
-		registry.addConverter(new StringToAuthHeaderConverter());
-	}
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+	registry.addConverter(new StringToAuthHeaderConverter());
+    }
 
 }
