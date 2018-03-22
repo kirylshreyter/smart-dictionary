@@ -16,7 +16,7 @@ import com.kirylshreyter.smart_dictionary.services.UserService;
 import com.kirylshreyter.smart_dictionary.services.security.Authentication;
 import com.kirylshreyter.smart_dictionary.services.security.Credentials;
 import com.kirylshreyter.smart_dictionary.webapp.config.RoutesConfig;
-import com.kirylshreyter.smart_dictionary.webapp.models.impl.UserModelImpl;
+import com.kirylshreyter.smart_dictionary.webapp.models.UserModel;
 import com.kirylshreyter.smart_dictionary.webapp.models.security.AuthHeader;
 import com.kirylshreyter.smart_dictionary.webapp.models.security.AuthenticationModel;
 import com.kirylshreyter.smart_dictionary.webapp.models.security.BadAuthenticationModel;
@@ -57,7 +57,11 @@ public class AuthenticationController {
 	}
 
 	@RequestMapping(value = RoutesConfig.SIGN_UP_PATH, method = RequestMethod.POST)
-	public ResponseEntity<?> signUp(@RequestBody UserModelImpl userModel) {
+	public ResponseEntity<?> signUp(@RequestBody UserModel userModel) {
+		if (userService.findByEmail(userModel.getEmail()) != null) {
+			return new ResponseEntity<BadAuthenticationModel>(
+					new BadAuthenticationModel("Email already exist."), HttpStatus.BAD_REQUEST);
+		}
 		userModel.setToken(authenticationService.generateToken());
 		IUser user = this.conversionService.convert(userModel, IUser.class);
 		user = userService.create(user);

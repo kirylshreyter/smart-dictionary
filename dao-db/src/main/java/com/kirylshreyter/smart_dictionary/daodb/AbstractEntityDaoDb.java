@@ -13,4 +13,9 @@ public interface AbstractEntityDaoDb<T extends IAbstract> {
 	List<T> readAll();
 
 	void delete(T entity);
+
+	List<T> saveAll(Iterable<T> entities);
+	
+	void deleteAll(Iterable<T> entities);
+	
 }

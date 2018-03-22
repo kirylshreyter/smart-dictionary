@@ -12,23 +12,33 @@ import com.kirylshreyter.smart_dictionary.services.TranslationService;
 @Service
 public class TranslationServiceImpl implements TranslationService {
 
-	@Autowired
-	private TranslationDaoDb translationDaoDb;
+    @Autowired
+    private TranslationDaoDb translationDaoDb;
 
-	public ITranslation create(ITranslation t) {
-		return translationDaoDb.create(t);
-	}
+    public ITranslation create(ITranslation t) {
+	return translationDaoDb.create(t);
+    }
 
-	public ITranslation read(long id) {
-		return translationDaoDb.read(id);
-	}
+    public ITranslation read(long id) {
+	return translationDaoDb.read(id);
+    }
 
-	public List<ITranslation> readAll() {
-		return translationDaoDb.readAll();
-	}
+    public List<ITranslation> readAll() {
+	return translationDaoDb.readAll();
+    }
 
-	public void delete(ITranslation t) {
-		translationDaoDb.delete(t);
-	}
+    public void delete(ITranslation t) {
+	translationDaoDb.delete(t);
+    }
+
+    @Override
+    public List<ITranslation> saveAll(Iterable<ITranslation> entities) {
+	return translationDaoDb.saveAll(entities);
+    }
+
+    @Override
+    public void deleteAll(Iterable<ITranslation> entities) {
+	translationDaoDb.deleteAll(entities);
+    }
 
 }
