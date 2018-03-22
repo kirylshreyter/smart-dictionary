@@ -1,7 +1,6 @@
 package com.kirylshreyter.smart_dictionary.webapp.converters;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.core.convert.converter.Converter;
 
@@ -19,13 +18,12 @@ public class WordModelToWordConverter implements Converter<WordModel, IWord> {
 		word.setId(source.getId());
 		word.setValue(source.getValue());
 		word.setRepeatCount(source.getRepeatCount());
-		Set<ITranslation> translations = new HashSet<ITranslation>();
-		source.getTranslations().forEach((translation) -> {
-			ITranslation resultTranslation = new Translation();
-			resultTranslation.setValue(translation.getValue());
-			translations.add(resultTranslation);
-		});
-		word.setTranslations(translations);
+		word.setTranslations(source.getTranslations().stream().map((translationModel) -> {
+			ITranslation translation = new Translation();
+			translation.setId(translationModel.getId());
+			translation.setValue(translationModel.getValue());
+			return translation;
+		}).collect(Collectors.toSet()));
 		return word;
 	}
 
