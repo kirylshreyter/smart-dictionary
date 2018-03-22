@@ -10,13 +10,13 @@ public interface IUser extends IAbstract {
 
 	public void setPassword(String password);
 
-	public IFirstName getFirstName();
+	public String getFirstName();
 
-	public void setFirstName(IFirstName firstName);
+	public void setFirstName(String firstName);
 
-	public ILastName getLastName();
+	public String getLastName();
 
-	public void setLastName(ILastName lastName);
+	public void setLastName(String lastName);
 
 	public String getToken();
 
