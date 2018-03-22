@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.http.entity.ContentType;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.kirylshreyter.smart_dictionary.webapp.models.security.RestrictedResourceRequested;
 
 public class ResponseUtils {
 
 	private final static String CONTENT_TYPE_HEADER_TITLE = "Content-Type";
 
-	private static ResponseUtils responseUtils = new ResponseUtils();
+	private static final ResponseUtils RESPONSE_UTILS = new ResponseUtils();
 
 	private final JSONObject unauthorizedResponseObject = new JSONObject(
 			"{\"error\":\"Username and password are incorrect.\"}");
@@ -26,7 +29,7 @@ public class ResponseUtils {
 	}
 
 	public static ResponseUtils getInstance() {
-		return responseUtils;
+		return RESPONSE_UTILS;
 	}
 
 	public HttpServletResponse unauthorizedResponse(ServletResponse response, boolean authHeader) throws IOException {
@@ -37,5 +40,10 @@ public class ResponseUtils {
 				: unauthorizedResponseObject.toString().getBytes();
 		response.getOutputStream().write(responseToSend);
 		return (HttpServletResponse) response;
+	}
+
+	public ResponseEntity<RestrictedResourceRequested> restrictedResponse() {
+		return new ResponseEntity<RestrictedResourceRequested>(
+				new RestrictedResourceRequested("You're not allowed to request this resource."), HttpStatus.FORBIDDEN);
 	}
 }

@@ -1,25 +1,50 @@
 package com.kirylshreyter.smart_dictionary.webapp.models;
 
-import java.util.List;
+import java.util.Set;
 
-import com.kirylshreyter.smart_dictionary.webapp.models.impl.TranslationModelImpl;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public interface WordModel extends AbstractModel {
+public class WordModel extends AbstractModel {
 
-	public String getValue();
+	private String value;
 
-	public void setValue(String value);
+	private long repeatCount;
 
-	public long getRepeatCount();
+	@JsonIgnore
+	private long userId;
 
-	public void setRepeatCount(long repeatCount);
+	private Set<TranslationModel> translations;
 
-	public long getUserId();
+	public String getValue() {
+		return value;
+	}
 
-	public void setUserId(long userId);
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-	public List<TranslationModelImpl> getTranslations();
+	public long getRepeatCount() {
+		return repeatCount;
+	}
 
-	public void setTranslations(List<TranslationModelImpl> translations);
+	public void setRepeatCount(long repeatCount) {
+		this.repeatCount = repeatCount;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public Set<TranslationModel> getTranslations() {
+		return translations;
+	}
+
+	public void setTranslations(Set<TranslationModel> translations) {
+		this.translations = translations;
+	}
 
 }
