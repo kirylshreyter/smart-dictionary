@@ -14,5 +14,7 @@ public interface AuthenticationService {
 	public boolean nullifyAuthentication(String token);
 
 	public String generateToken();
+	
+	public String generateToken(String passPhrase);
 
 }
