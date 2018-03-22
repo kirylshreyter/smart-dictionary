@@ -1,25 +1,55 @@
 package com.kirylshreyter.smart_dictionary.webapp.models;
 
-public interface UserModel extends AbstractModel {
+public class UserModel extends AbstractModel {
 
-	public String getEmail();
+	private String email;
 
-	public void setEmail(String email);
+	private String password;
 
-	public String getPassword();
+	private String firstName;
 
-	public void setPassword(String password);
+	private String lastName;
 
-	public String getFirstName();
+	private String token;
 
-	public void setFirstName(String firstName);
+	public String getEmail() {
+		return email;
+	}
 
-	public String getLastName();
+	public void setEmail(String emailName) {
+		this.email = emailName;
+	}
 
-	public void setLastName(String lastName);
+	public String getPassword() {
+		return password;
+	}
 
-	public String getToken();
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-	public void setToken(String token);
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 }

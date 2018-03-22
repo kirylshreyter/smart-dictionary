@@ -30,4 +30,14 @@ public class UserDaoDbImpl extends AbstractEntityDaoDbImpl<IUser> implements Use
 		return userRepository.findByEmailAndPassword(email, password);
 	}
 
+	@Override
+	public IUser findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+
+	@Override
+	public void setFixedTokenFor(String token, long id) {
+		userRepository.setFixedTokenFor(token, id);
+	}
+
 }
