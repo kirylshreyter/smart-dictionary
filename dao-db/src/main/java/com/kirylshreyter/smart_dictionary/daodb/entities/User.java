@@ -1,14 +1,9 @@
 package com.kirylshreyter.smart_dictionary.daodb.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.kirylshreyter.smart_dictionary.datamodel.IFirstName;
-import com.kirylshreyter.smart_dictionary.datamodel.ILastName;
 import com.kirylshreyter.smart_dictionary.datamodel.IUser;
 
 @Entity
@@ -21,55 +16,62 @@ public class User extends AbstractEntity implements IUser {
 	@Column(name = "password")
 	private String password;
 
-	@ManyToOne(cascade = CascadeType.ALL, targetEntity = FirstName.class)
-	@JoinColumn(name = "first_name_id", nullable = false)
-	private FirstName firstName;
-
-	@ManyToOne(cascade = CascadeType.ALL, targetEntity = LastName.class)
-	@JoinColumn(name = "last_name_id", nullable = false)
-	private LastName lastName;
-
 	@Column(name = "token")
 	private String token;
 
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Override
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
 
+	@Override
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	@Override
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
+	@Override
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public IFirstName getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(IFirstName firstName) {
-		this.firstName = (FirstName) firstName;
-	}
-
-	public ILastName getLastName() {
-		return this.lastName;
-	}
-
-	public void setLastName(ILastName lastName) {
-		this.lastName = (LastName) lastName;
-	}
-
+	@Override
 	public String getToken() {
-		return this.token;
+		return token;
 	}
 
+	@Override
 	public void setToken(String token) {
 		this.token = token;
 	}
 
+	@Override
+	public String getFirstName() {
+		return firstName;
+	}
+
+	@Override
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Override
+	public String getLastName() {
+		return lastName;
+	}
+
+	@Override
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 }
