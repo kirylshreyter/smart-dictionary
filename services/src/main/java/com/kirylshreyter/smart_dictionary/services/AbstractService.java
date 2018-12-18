@@ -8,11 +8,11 @@ public interface AbstractService<T> {
 
     public T read(long id);
 
-    List<T> readAll();
+    public List<T> readAll();
 
     public void delete(T t);
 
-    List<T> saveAll(Iterable<T> entities);
+    public List<T> saveAll(Iterable<T> entities);
 
     void deleteAll(Iterable<T> entities);
 

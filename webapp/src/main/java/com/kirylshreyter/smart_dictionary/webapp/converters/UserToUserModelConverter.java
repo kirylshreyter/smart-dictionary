@@ -7,7 +7,6 @@ import com.kirylshreyter.smart_dictionary.webapp.models.UserModel;
 
 public class UserToUserModelConverter implements Converter<IUser, UserModel> {
 
-	@Override
 	public UserModel convert(IUser source) {
 		UserModel userModel = new UserModel();
 		userModel.setId(source.getId());
