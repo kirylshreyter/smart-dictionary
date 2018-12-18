@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -11,7 +12,7 @@
 	<properties>
 		<flyway.driver>org.postgresql.Driver</flyway.driver>
 		<flyway.url>jdbc:postgresql://127.0.0.1:5432/smart_dictionary</flyway.url>
-		<flyway.user>shreyter</flyway.user>
+		<flyway.user>postgres</flyway.user>
 		<flyway.password>123456789</flyway.password>
 	</properties>
 
@@ -97,6 +98,11 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
 		</dependency>
 
 		<dependency>
