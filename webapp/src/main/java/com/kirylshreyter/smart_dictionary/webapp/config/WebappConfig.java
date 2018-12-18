@@ -30,7 +30,6 @@ import com.kirylshreyter.smart_dictionary.webapp.converters.StringToAuthHeaderCo
 
 public class WebappConfig implements WebMvcConfigurer {
 
-    @Override
     public void addFormatters(FormatterRegistry registry) {
 	registry.addConverter(new StringToAuthHeaderConverter());
     }

@@ -10,7 +10,6 @@ import com.kirylshreyter.smart_dictionary.webapp.models.WordModel;
 
 public class WordToWordModelConverter implements Converter<IWord, WordModel> {
 
-	@Override
 	public WordModel convert(IWord source) {
 		WordModel wordModel = new WordModel();
 		wordModel.setId(source.getId());
