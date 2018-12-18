@@ -39,27 +39,22 @@ public class WordServiceImpl implements WordService {
 	wordDaoDb.delete(t);
     }
 
-    @Override
     public IWord findByIdAndUserId(long id, long userId) {
 	return wordDaoDb.findByIdAndUserId(id, userId);
     }
 
-    @Override
     public List<IWord> findAllByUserId(long userId) {
 	return wordDaoDb.findAllByUserId(userId);
     }
 
-    @Override
     public List<IWord> saveAll(Iterable<IWord> entities) {
 	return wordDaoDb.saveAll(entities);
     }
 
-    @Override
     public void deleteAll(Iterable<IWord> entities) {
 	wordDaoDb.deleteAll(entities);
     }
 
-    @Override
     @Transactional
     public IWord updateFields(IWord source, IWord target) {
 	target.setValue(source.getValue());
@@ -70,7 +65,6 @@ public class WordServiceImpl implements WordService {
 	return target;
     }
 
-    @Override
     public void deleteOrphanTranslations() {
 	wordDaoDb.deleteOrphanTranslations();
     }

@@ -8,7 +8,6 @@ import com.kirylshreyter.smart_dictionary.webapp.models.UserModel;
 
 public class UserModelToUserConverter implements Converter<UserModel, IUser> {
 
-	@Override
 	public IUser convert(UserModel source) {
 		IUser user = new User();
 		user.setEmail(source.getEmail());

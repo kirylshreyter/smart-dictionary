@@ -84,7 +84,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		return false;
 	}
 
-	@Override
 	public String generateToken() {
 		Long random = ThreadLocalRandom.current().nextLong();
 		ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
@@ -96,7 +95,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		return generateToken();
 	}
 
-	@Override
 	public String generateToken(String passPhrase) {
 		return DigestUtils.sha256Hex(passPhrase);
 	}
